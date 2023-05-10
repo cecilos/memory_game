@@ -1,0 +1,150 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.wrapper{
+    background-color: #152938;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.head{
+    margin: auto;
+    margin-bottom: 0px;
+}
+
+.grid-container{
+    margin: auto;
+    padding: 20px;
+    background-color: #FCFCFC;
+    width: 400px;
+    height: 400px;
+    border-radius: 1em;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas: "item1 . . ."
+                         "item2 item2 item3 item3"
+                         "item4 . . ."
+                         "item5 item6 item7 item8"
+                         "item9 . . ."
+                         "item10 item10 item11 item11"
+                         "item12 item12 item12 item12";  
+}
+
+
+.item1{
+    grid-area: item1;
+}
+.item2{
+    grid-area: item2;
+}
+.item3{
+    grid-area:item3;
+}
+.item4{
+    grid-area:item4;
+}
+.item5{
+    grid-area:item5;
+}
+.item6{
+    grid-area:item6;
+}
+.item7{
+    grid-area:item7;
+}
+.item8{
+    grid-area:item8;
+}
+.item9{
+    grid-area:item9;
+}
+.itema{
+    grid-area:item10;
+}
+.itemb{
+    grid-area:item11;
+}
+.itemc{
+    grid-area:item12;
+}
+
+button{
+    width: 100%;
+    height: 100%;
+    border-radius: 2em;
+    background: #BCCED9;
+    border-style: none;
+}
+button:hover{
+    background: #6395B8;
+}
+button:active{
+    background: #304859;
+}
+
+.start{
+    background: #FDA214;
+    font-size: 32px;
+}
+.start:hover{
+    background: #FFB84A;
+}
+
+/*Styling for the game.html */
+.game_cont{
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.menu_cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu_buttons{
+    display: flex;
+}
+
+.menu_buttons .btn{
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* game grid display*/
+
+.game_grid{
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid red;
+}
+
+.grid{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style: none;
+    
+}
+
+.card_btn{
+    width: 118px;
+    height:118px;
+    background: #304859;
+    border-radius: 100%;
+    margin:2px;
+    color: #FCFCFC;
+    border-style: none;
+    cursor: pointer;
+}
+
