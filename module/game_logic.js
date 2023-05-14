@@ -66,8 +66,26 @@ const logic = ()=>{
             });
         }
 
-        
+        // put the icons or numbers in the card-btn
+        cardBtn.forEach((icon,i)=> {//the (icon,i) are the two args
+            //the first is the array element and the second is the index
+            const number = `<p class=${random[i]}>${random[i]}</p>`;
 
+            //define what happens if it is a number or icon
+            //the number variable above defines what happens if
+            //it is a number
+
+            if(theme !== "icons"){
+                icon.innerHTML = number;
+            }
+            else{
+                icon.innerHTML = random[i];
+                console.log(random[i]);
+            }
+        });
+    }//end of start function
+
+    //write restart function later
 
         //function for adding elements for multiplayer
         //for solo player the timer and moves will show 
@@ -140,10 +158,10 @@ const logic = ()=>{
             }
             return array;
         }
-    }
 
-    start();//this is where invoke the start of game
+//define start function here
+start();
+} //end of main function . now invoke it below 
 
-    
-}
+
 logic();// the final place where the whole code runs 
