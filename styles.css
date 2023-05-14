@@ -162,4 +162,32 @@ button:active{
 written in the js file for the multiplayer mode*/
 
 
+/*player_cont child*/
+.player_list{
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 0;
+}
+
+/*the descendants of player_cont*/
+.player,.time_cont,.move_cont{
+    width: 46%; /*use 46%*/
+    border-radius: 10px;
+    background: #dfe7ec;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 15px 10px;
+
+}
+
+/*styling of digits */
+.move,.timer,.score{
+    font-weight: 700px;
+    font-size: 32px;
+}
+
+
 

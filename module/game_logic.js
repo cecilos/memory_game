@@ -54,6 +54,20 @@ const logic = ()=>{
             newPlayer([i]);
         }
 
+        //modify the width of the players div
+        if(document.querySelectorAll(".player").length === 3){
+            document.querySelectorAll(".player").forEach(item =>{
+                item.style.width = "30%";
+            })
+        }
+        else if(document.querySelectorAll(".player").length === 4){
+            document.querySelectorAll(".player").forEach(item => {
+                item.style.width = "23%";
+            });
+        }
+
+        
+
 
         //function for adding elements for multiplayer
         //for solo player the timer and moves will show 
