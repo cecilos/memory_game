@@ -148,3 +148,18 @@ button:active{
     cursor: pointer;
 }
 
+/*this class will be used later in js*/
+.hard_card_btn{
+    width: 81px;
+    height: 81px;
+    background: #304859;
+    border-radius: 100%;
+    cursor: pointer;
+    
+}
+
+/* this right here is the css for the new class : player and score
+written in the js file for the multiplayer mode*/
+
+
+

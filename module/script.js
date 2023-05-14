@@ -60,14 +60,20 @@ const menuSelect = ()=>{
             base.id = base.id.replace("grid-active", "");
             active.id += "grid-active";
 
-            if(e.target.value === "4x4"){
-                localStorage.setItem("grid","6x6");
-                
-            }
-            else{
+            if(e.target.value === "6x6"){
                 localStorage.setItem("grid","6x6");
                 console.log(localStorage);
+                
             }
+
+            if(e.target.value === "4x4"){
+                localStorage.setItem("grid","4x4");
+                console.log(localStorage);
+            }
+            /*else{
+                localStorage.setItem("grid","4x4");
+                console.log(localStorage);
+            }*/
         })
     });
 }
