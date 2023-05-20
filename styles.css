@@ -102,6 +102,7 @@ button:active{
     max-width: 1000px;
     margin: 0 auto;
     height: 100%;
+    position: relative;
 }
 
 .menu_cont{
@@ -126,7 +127,6 @@ button:active{
 .game_grid{
     max-width: 500px;
     margin: 0 auto;
-    border: 1px solid red;
 }
 
 .grid{
@@ -146,6 +146,7 @@ button:active{
     color: #FCFCFC;
     border-style: none;
     cursor: pointer;
+    font-size: 0;
 }
 
 /*this class will be used later in js*/
@@ -155,6 +156,7 @@ button:active{
     background: #304859;
     border-radius: 100%;
     cursor: pointer;
+    font-size: 0;
     
 }
 
@@ -183,11 +185,65 @@ written in the js file for the multiplayer mode*/
 
 }
 
+/*multiplayer turn*/
+.player_turn{
+    background: #FDA214;
+    color:#FCFCFC;
+}
+
+
+
 /*styling of digits */
 .move,.timer,.score{
     font-weight: 700px;
     font-size: 32px;
 }
 
+/*code for the cardEventListener : addition of classes 
+when a card is clicked*/
+.open{
+    background: #BCCED9;
+    cursor: default;
 
+}/* when a card is clicked to open*/
+
+
+.show{
+    font-size: 40px;
+    cursor: default;
+    
+}/*size of the icon or number appearing*/
+
+.wrong{
+    background: #ed4444;
+}
+
+.match{
+    background: #FDA214;
+}
+
+
+/*how scores appear*/
+.time_elapse,.moves_taken,.btn_cont{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/*soloplayer*/
+.single_player{
+    position: absolute;
+    width: 654px;
+    height: 510px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f2f2;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    
+    
+}
 

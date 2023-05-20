@@ -38,9 +38,7 @@ let iconsArray = [ `<i class="fa-solid fa-envelope"></i>`,
                 `<i class="fa-solid fa-radio"></i>`,
                 `<i class="fa-solid fa-radio"></i>`,
                 `<i class="fa-solid fa-road"></i>`,
-                `<i class="fa-solid fa-road"></i>`,
-                `<i class="fa-solid fa-soap"></i>`,
-                `<i class="fa-solid fa-soap"></i>`];
+                `<i class="fa-solid fa-road"></i>`];
 
 
 export {numbersArray,iconsArray};
