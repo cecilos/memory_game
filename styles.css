@@ -224,7 +224,7 @@ when a card is clicked*/
 
 
 /*how scores appear*/
-.time_elapse,.moves_taken,.btn_cont{
+.time_elapse,.moves_taken,.btn_cont,.player-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -232,18 +232,108 @@ when a card is clicked*/
 /*soloplayer*/
 .single_player{
     position: absolute;
-    width: 654px;
-    height: 510px;
+    width: 100%;
+    height: 110%;
     display: none;
     align-items: center;
     justify-content: center;
-    background-color: #f2f2f2;
+    background-color: rgba(0, 0, 0, .4);
     top: 0;
-    right: 0;
     left: 0;
-    bottom: 0;
-    margin: auto;
     
+    
+}
+
+.multiplayer{
+    position: absolute;
+    width: 100%;
+    height: 110%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color:rgba(0, 0, 0, .4);
+    top: 0;
+    left: 0;
+}
+
+.result_cont{
+    width: 70%;
+    max-width: 654px;
+    background-color: #FCFCFC;
+    border-radius: 20px;
+    padding: 40px 55px;
+    color: #7191a5;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.result_cont h1, .result_cont p{
+    text-align: center;
+}
+
+.result_cont h1{
+    color: #152938;
+    font-size: 48px;
+    margin-bottom: 10px;
+
+}
+
+.time_elapse,.moves_taken,.player-container{
+    background-color: #dfe7ec;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.player-container{
+    list-style: none;
+}
+
+.winner{
+    background-color: #152938;
+}
+
+.time_rcont,.moves_rcont,.player-score{
+    font-weight: 700;
+    font-size: 32px;
+    color:#304859;
+}
+
+.sub-message{
+    margin-bottom: 40px;
+}
+
+.btn_cont{
+    margin-top: 40px;
+}
+
+.r_restart,.link_new_game{
+    width: 48%;
+    font-size: 20px;
+    border-radius: 26px;
+}
+
+.restart{
+    background: #FDA214;
+    color:#FCFCFC;
+    padding: 13px 28px;
+}
+.restart:hover{
+    background: #FFB84A;
+}
+
+.new_game{
+    width: 100%;
+    background:#DFE7EC;
+    color:#304859;
+    padding: 13px 28px;
+    font-size: 20px;
+    
+}
+
+.new_game:hover{
+    background: #6395B8;
+    color:#FCFCFC;
     
 }
 

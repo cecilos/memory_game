@@ -302,7 +302,7 @@ const logic = ()=>{
             if(players > 1){
                 movesCont.style.display = "none";
                 timer.style.display = "none";
-                playerHeader.innerText = "Player" + num;
+                playerHeader.innerText = "Player " + num;
                 playerScore.innerText = 0;
                 listItem.classList.add("player"); // write a css code for this class
                 playerScore.classList.add("score");// write a css code for this class
@@ -388,7 +388,7 @@ const logic = ()=>{
             const highestScore = Math.max(...finalScores);
 
             playerName.innerText = `Player ${parseInt(num) + 1}`;
-            playerScore.innerText = score[num].textContent;
+            playerScore.innerText = score[num].textContent + " Pairs";
 
             //define the heading 
             if(winner === parseInt(score[num].textContent)){
@@ -405,7 +405,7 @@ const logic = ()=>{
             //
             if(player.length < players){
                 listItem.classList.add("player-container");
-                playerName.classList.add("player-score");
+                playerName.classList.add("player-name");
                 playerScore.classList.add("player-score");
                 playerList.appendChild(listItem);
                 listItem.appendChild(playerName);
