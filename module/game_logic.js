@@ -161,133 +161,101 @@ const logic = ()=>{
     }
 
 
-    //implement an event listener on the cards 
-    function cardEventListener(e){
+    //implement an event listener on the cards
+    function cardEventListener(e) {
         const moves = document.querySelector(".move");
         const player = document.querySelectorAll(".player");
         const score = document.querySelectorAll(".score");
-
-        if(!e.target.classList.contains("show")){
-            e.target.classList.add("open","show");
-            turn.push(e.target.children)
-            //we injected a child element to the card-btn 
-            //so whenever we click a card-btn 
-            //we push the child into the array turn 
-
+    
+        if (!e.target.classList.contains("show")) {
+            e.target.classList.add("open", "show");
+            turn.push(e.target.children);
         }
-
+    
         cardBtn.forEach(item => {
-            if(item.classList.contains("open")){
-                item.removeEventListener("click",cardEventListener);
+            if (item.classList.contains("open")) {
+                item.removeEventListener("click", cardEventListener);
             }
-        }); //once card is clicked remove the eventlistener
-
-        //the content of variable turn : turn = [[a],[b]]
-        //so to access first element of turn: turn[0][0] ; ans = a
-
-        if(turn.length === 2){
+        });
+    
+        if (turn.length === 2) {
             let turn1 = turn[0][0];
-            let turn2 = turn[1][0]; //returns <i></i>
-            if(turn1.classList.value !== turn2.classList.value)
-            {
+            let turn2 = turn[1][0];
+    
+            if (turn1.classList.value !== turn2.classList.value) {
                 turn1.parentElement.classList.add("wrong");
                 turn2.parentElement.classList.add("wrong");
-                //add wrong class to show that it is wrong
-
+    
                 cardBtn.forEach(btn => {
-                    btn.removeEventListener("click",cardEventListener);
-                }); // remove cursor
-
-                setTimeout(()=>{
-                    turn1.parentElement.classList.remove("open","show","wrong");
-                    turn2.parentElement.classList.remove("open","show","wrong");
-
-                    turn = [] //set turn to default of empty array 
-                    //since the two cards are not matched
-
+                    btn.removeEventListener("click", cardEventListener);
+                });
+    
+                setTimeout(() => {
+                    turn1.parentElement.classList.remove("open", "show", "wrong");
+                    turn2.parentElement.classList.remove("open", "show", "wrong");
+    
+                    turn = [];
+    
                     cardBtn.forEach(btn => {
-                        if(!btn.classList.contains("match")){
-                            btn.addEventListener("click",cardEventListener);
+                        if (!btn.classList.contains("match")) {
+                            btn.addEventListener("click", cardEventListener);
                         }
-                    })
-                },1000);
-
-
-            }
-            else{
-                matches++ //the if condition : not met
-                //else condition : met , then the two cards match
-                //so add 1 to the match value
-                setTimeout(()=>{
+                    });
+    
+                    // If the two cards do not match, move to the next player's turn
+                    if (players > 1) {
+                        player[currentPlayer].classList.remove("player_turn");
+                        currentPlayer = (currentPlayer + 1) % players;
+                        player[currentPlayer].classList.add("player_turn");
+                    }
+                }, 1000);
+            } else {
+                matches++;
+                setTimeout(() => {
                     turn1.parentElement.classList.add("match");
                     turn2.parentElement.classList.add("match");
-
-                    turn = []; //empty the turn array if they match
-
-                },0);
-
-                //to be continued: if cards clicked are matching 
-                //what logic must follow
-                if(players > 1){
-                    score[currentPlayer].textContent++;
-                }
-
-
-            }//end of else 
-
-            //moves for solo
-            if(players <= 1 && turn.length === 2){
-                movesCounter++;
-                moves.textContent = movesCounter;
-            }
-
-            //if solo player is done playing 
-            if(players <= 1 && grid === "4x4" && matches === 8){
-                soloPlayerScore(moves.textContent);
-                document.querySelector(".single_player").style.display = "flex";
-
-            }
-            else if(players <= 1 && grid === "6x6" && matches === 18){
-                soloPlayerScore(moves.textContent);
-                document.querySelector(".single_player").style.display = "flex";
-            }
-
-            //if multiplayer is done playing 
-
-            if(players > 1 && grid === "4x4" && matches === 8){
-                document.querySelector(".multiplayer").style.display = "flex";
-                
-                score.forEach(item => {
-                    finalScores.push(parseInt(item.textContent));
-
-                });
-
-                winner = Math.max(...finalScores);
-
-                //
-                for (let i = 0; i < players; i++){
-                    multiplayerScore([i]);
-                }
+    
+                    turn = [];
+    
+                    // If the two cards match, the current player gets another turn
+                    if (players > 1) {
+                        score[currentPlayer].textContent++;
+                    }
+                    
+                    // If it's a solo player, increment the moves counter
+                    if (players <= 1) {
+                        movesCounter++;
+                        moves.textContent = movesCounter;
+                    }
+    
+                    // If solo player is done playing
+                    if (players <= 1 && grid === "4x4" && matches === 8) {
+                        soloPlayerScore(moves.textContent);
+                        document.querySelector(".single_player").style.display = "flex";
+                    } else if (players <= 1 && grid === "6x6" && matches === 18) {
+                        soloPlayerScore(moves.textContent);
+                        document.querySelector(".single_player").style.display = "flex";
+                    }
+    
+                    // If multiplayer is done playing
+                    if (players > 1 && grid === "4x4" && matches === 8) {
+                        document.querySelector(".multiplayer").style.display = "flex";
+                        
+                        score.forEach(item => {
+                            finalScores.push(parseInt(item.textContent));
+                        });
+    
+                        winner = Math.max(...finalScores);
+    
+                        for (let i = 0; i < players; i++) {
+                            multiplayerScore(i);
+                        }
+                    }
+                }, 0);
             }
         }
-
-        //second condition 
-        if(turn.length === 2 && players > 1){
-            player[currentPlayer].classList.remove("player_turn");
-            currentPlayer++;
-            if(players > currentPlayer){
-                player[currentPlayer].classList.add("player_turn");
-            }
-            else{
-                currentPlayer = 0;
-                player[currentPlayer].classList.add("player_turn");
-            }
-        }
-
-
-
-    }//end of cardEventListener
-
+    }
+    
         //function for adding elements for multiplayer
         //for solo player the timer and moves will show 
         //for multiplayer we add new features and take out the timer and moves container
@@ -411,6 +379,28 @@ const logic = ()=>{
                 listItem.appendChild(playerName);
                 listItem.appendChild(playerScore);
             }
+
+
+            //sort the scores to display winner in descending order
+            // finalScores.sort((a,b)=> b -a);
+
+            // finalScores.forEach((score,index)=>{
+                // const winnerItem = document.createElement("li");
+                // const winnerName = document.createElement("p");
+                // const winnerScore = document.createElement("p");
+
+                // winnerItem.classList.add("player-container");
+                // winnerName.classList.add("player-name");
+                // winnerScore.classList.add("player-score");
+
+                // winnerName.innerText = `Player ${index + 1}`;
+                // winnerScore.innerText = `${score} Pairs`;
+
+                // winnerItem.appendChild(winnerName);
+                // winnerItem.appendChild(winnerScore);
+
+                // playerList.appendChild(winnerItem);
+            // });
 
 
 
