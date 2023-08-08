@@ -18,21 +18,33 @@
     margin-bottom: 0px;
 }
 
+.logo-img path{
+    fill:#FCFCFC;
+}
+
+.logo-img{
+    margin: 0 0 30px 0;
+}
+
+.grid-item h3{
+    color: #7191A5;
+}
+
 .grid-container{
     margin: auto;
     padding: 20px;
     background-color: #FCFCFC;
-    width: 400px;
+    width: 600px;
     height: 400px;
     border-radius: 1em;
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(4,1fr);
-    grid-template-areas: "item1 . . ."
+    grid-template-areas: "item1 item1 . ."
                          "item2 item2 item3 item3"
-                         "item4 . . ."
+                         "item4 item4 . ."
                          "item5 item6 item7 item8"
-                         "item9 . . ."
+                         "item9 item9 . ."
                          "item10 item10 item11 item11"
                          "item12 item12 item12 item12";  
 }
@@ -81,12 +93,26 @@ button{
     border-radius: 2em;
     background: #BCCED9;
     border-style: none;
+    color:#FCFCFC;
+    font-weight: 700px;
+    font-size: 26px;
+    padding: 5px 0px;
+    cursor: pointer;
 }
 button:hover{
     background: #6395B8;
 }
 button:active{
     background: #304859;
+}
+
+#theme-active,
+#player-active,
+#grid-active,
+#theme-active:hover,
+#player-active:hover,
+#grid-active:hover {
+  background: #304859;
 }
 
 .start{
@@ -110,6 +136,7 @@ button:active{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 40px 0px;
 }
 
 .menu_buttons{
@@ -121,6 +148,14 @@ button:active{
     font-weight: 700;
 }
 
+.restart-btn{
+    width: 127px;
+    margin-right: 10px;
+}
+
+.new-game-btn{
+    width: 149px;
+}
 
 /* game grid display*/
 

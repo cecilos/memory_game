@@ -358,6 +358,7 @@ const logic = ()=>{
             playerName.innerText = `Player ${parseInt(num) + 1}`;
             playerScore.innerText = score[num].textContent + " Pairs";
 
+
             //define the heading 
             if(winner === parseInt(score[num].textContent)){
                 listItem.classList.add("winner");
@@ -380,30 +381,14 @@ const logic = ()=>{
                 listItem.appendChild(playerScore);
             }
 
-
-            //sort the scores to display winner in descending order
-            // finalScores.sort((a,b)=> b -a);
-
-            // finalScores.forEach((score,index)=>{
-                // const winnerItem = document.createElement("li");
-                // const winnerName = document.createElement("p");
-                // const winnerScore = document.createElement("p");
-
-                // winnerItem.classList.add("player-container");
-                // winnerName.classList.add("player-name");
-                // winnerScore.classList.add("player-score");
-
-                // winnerName.innerText = `Player ${index + 1}`;
-                // winnerScore.innerText = `${score} Pairs`;
-
-                // winnerItem.appendChild(winnerName);
-                // winnerItem.appendChild(winnerScore);
-
-                // playerList.appendChild(winnerItem);
-            // });
-
-
-
+            // Sort the player containers based on their scores in descending order
+            const sortedPlayers = Array.from(document.querySelectorAll(".player-container")).sort((a, b) => {
+                const scoreA = parseInt(a.querySelector(".player-score").textContent);
+                const scoreB = parseInt(b.querySelector(".player-score").textContent);
+                return scoreB - scoreA;
+            });
+            // Re-append the player containers to display them in descending order
+            sortedPlayers.forEach(playerContainer => playerList.appendChild(playerContainer));
         }//endoffunction
 
 //define start function here
